@@ -1,0 +1,39 @@
+sensitivePermissions:
+  - name: "Secrets Access"
+    resources: ["secrets", "configmaps"]
+    verbs: ["get", "list", "watch"]
+    impact: "Allows reading of secret values, which might contain sensitive data."
+    apiGroups: [""]
+    exceptions:
+      users: ["system:admin", "token-cleaner"]
+      serviceAccounts: ["default:my-service-account"]
+
+  - name: "Persistent Volume Management"
+    resources: ["persistentvolumes", "persistentvolumeclaims"]
+    verbs: ["create", "delete", "patch", "update"]
+    impact: "Allows management of persistent volumes which can lead to data exposure or loss."
+    apiGroups: [""]
+    exceptions:
+      users: ["system:node"]
+      serviceAccounts: ["default:pv-manager"]
+      namespaces: ["default"]
+      resources: ["pods"]
+      actions: ["create"]
+
+  - name: "Cluster Role Bindings"
+    resources: ["clusterrolebindings"]
+    verbs: ["create", "delete"]
+    impact: "Allows creation and deletion of cluster role bindings, which can escalate privileges."
+    apiGroups: [""]
+    exceptions:
+      users: ["system:controller"]
+      namespaces: ["kube-system"]
+
+  - name: "Node Access"
+    resources: ["nodes"]
+    verbs: ["get", "list"]
+    impact: "Allows access to node information, which might contain sensitive data."
+    apiGroups: [""]
+    exceptions:
+      serviceAccounts: ["kube-node-lease:default"]
+
