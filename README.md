@@ -24,6 +24,8 @@ To run KPAtrol with your custom configuration, use the following command:
 ```bash
 ./kpatrol -config config.yaml
 ```
+![Screenshot](./sc.png)
+
 A sample config file along with the sample rbac roles to test can be found in the **sample_configs** direcotry.
 
 ## Configuration
