@@ -14,8 +14,11 @@ KPatrol was created to solve a problem I faced while reviewing permissions on a 
 ## How is it different than kubiscan?
 
 - **Custom Project**: This project was created out of passion without being fully aware of kubiscan. kubiscan is a very powerful tool, and I would suggest you use it if you like it. However, this tool was created for me to learn Go and to add some custom features that I and many others I've interacted with as security engineers require.
-- **Focus**: The focus is on existing users/service accounts that already have sensitive access rather than auditing roles/cluster roles. Roles/cluster roles are only risky if attached to a user.This tool gives your immediate and high-impact action points to start working on.
-- **Exceptions Handling**: Easily add exceptions to exclude specific users, service accounts, namespaces, or resources.
+
+- **Focus**: The focus is on existing users/service accounts that already have sensitive access rather than auditing roles/cluster roles. Roles/cluster roles are only risky if attached to a user. This tool gives you immediate and high-impact action points to start working on. A context-based approach makes it easier to focus on things that matter instead of sifting through a dump of results.
+
+- **Exclusion Management**: Easily add exceptions to exclude specific users, service accounts, namespaces, or resources. Unlike Kubiscan, KPAtrol allows you to add exceptions for users/service accounts, resources, namespaces, and actions.
+
 
 ## Usage
 
